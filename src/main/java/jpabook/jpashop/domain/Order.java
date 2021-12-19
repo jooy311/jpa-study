@@ -20,7 +20,11 @@ public class Order {
     @JoinColumn(name = "member_id")//얘가 연관관계의 주인
     private Member member;
 
+    @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name = "delivery_id")
     private Delivery delivery;
     private LocalDate orderDate;//하이버 네이트가 자동으로 변경해준다함
     private  OrderStatus status;
